@@ -24,11 +24,13 @@ int main(int argc, char* argv[]){
         // code for the child
         printf("In parents child block!\n");
         execlp("./child", "child", argv[1], argv[2], NULL);
+        // this line of code should not be printed during program execution
+        // done only to find bugs
         printf("If you see this, there is a bug!\n");
     }
     else{
         // code for the parent
-        wait(&stat);
+        wait(&stat);    // the parent should wait for child to finish
     }
 
     exit(0);
