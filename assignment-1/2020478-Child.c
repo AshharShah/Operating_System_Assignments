@@ -8,8 +8,7 @@ int main(int argc, char* argv[]){
     printf("Running Child Program!\n");
     printf("%s\n",argv[1]);
     printf("%s\n",argv[2]);
-    exit(0);
-    int file1 = open("file1.txt", O_RDONLY);
-    int file2 = open("file2.txt", O_RDONLY);
+    int file1 = open("file1.txt", O_RDWR);
+    int file2 = open("file2.txt", O_RDWR);
     exit(0);
 }
