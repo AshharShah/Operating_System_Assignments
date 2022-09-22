@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include<sys/wait.h>
 
 int main(int argc, char* argv[]){
 
@@ -9,20 +11,25 @@ int main(int argc, char* argv[]){
         printf("%s\n", argv[i]);
     }
 
-    // Creating a child via the fork command
+    // Creating a child via the forcleark command
     int pid = fork();
+    int stat;
 
     if(pid == -1){
         // what to do if failure to fork occurs (error handling)
         printf("Fork Failed!\n");
-        exit(NULL);
+        exit(0);
     }
     else if(pid == 0){
         // code for the child
+        printf("In parents child block!\n");
+        execlp("./child", "child", argv[1], argv[2], NULL);
+        printf("If you see this, there is a bug!\n");
     }
     else{
         // code for the parent
+        wait(&stat);
     }
 
-    exit(NULL);
+    exit(0);
 }

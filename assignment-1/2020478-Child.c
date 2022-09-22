@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 int main(int argc, char* argv[]){
-    
-    exit(NULL);
+    printf("Running Child Program!\n");
+    printf("%s\n",argv[1]);
+    printf("%s\n",argv[2]);
+    exit(0);
+    int file1 = open("file1.txt", O_RDONLY);
+    int file2 = open("file2.txt", O_RDONLY);
+    exit(0);
 }
