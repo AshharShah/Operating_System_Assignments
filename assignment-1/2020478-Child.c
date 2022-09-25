@@ -18,6 +18,10 @@ int main(int argc, char* argv[]){
     // opening the files using the open() method
     int file1 = open(argv[1], O_RDWR);
     int file2 = open(argv[2], O_RDWR);
+    // if either of the 2 files in the arguments do not exist, exit with an error
+    if(file1 == -1 || file2 == -1){
+        exit(2);
+    }
     int f1size = 0;
     int f2size = 0;
     int notequal = 0;

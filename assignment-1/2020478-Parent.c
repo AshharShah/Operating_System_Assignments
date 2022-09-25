@@ -37,13 +37,13 @@ int main(int argc, char* argv[]){
         // printing the error code along with the reason for the error code
         switch(exitCode){
             case 0:
-                printf("File1 and File2 Are Same!\n");
+                printf("ErrorCode : File1 and File2 Are Same!\n");
                 break;
             case 1:
-                printf("File1 and File2 Are Different!\n");
+                printf("ErrorCode : File1 and File2 Are Different!\n");
                 break;
             case 2:
-                printf("Error Opening Files / Same Filenames!\n");
+                printf("ErrorCode : Error Opening Files / Same Filenames!\n");
                 break;
         }
     }
