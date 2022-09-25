@@ -3,14 +3,13 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <string.h>
 
 int main(int argc, char* argv[]){
     //printf("Running Child Program!\n");
-    printf("%s\n",argv[1]);
-    printf("%s\n",argv[2]);
 
     // return the exit code of 2, error opening files/same file name
-    if(argv[1] == argv[2]){
+    if(strcmp(argv[1], argv[2]) == 0){
         exit(2);
     }
     // variables to store the characters read line by line
@@ -36,7 +35,7 @@ int main(int argc, char* argv[]){
     }
     // if file 1 has remaining characters then the files are not equal
     if((read(file1, &f1, 1) == 1)){
-        printf("%s has more characters\n",argv[1]);
+        //printf("%s has more characters\n",argv[1]);
         f1size = f1size + 2;
         while(read(file1, &f1, 1) == 1){
             f1size++;
@@ -47,7 +46,7 @@ int main(int argc, char* argv[]){
     }
     // else if file 2 has remaining characters then the files are not equal
     else if((read(file2, &f2, 1) == 1)){
-        printf("%s has more characters\n",argv[2]);
+        //printf("%s has more characters\n",argv[2]);
         f2size++;
         while(read(file2, &f2, 1) == 1){
             f2size++;

@@ -25,8 +25,11 @@ int main(int argc, char* argv[]){
     else{
         // code for the parent
         wait(&stat);    // the parent should wait for child to finish
+        // using macros to get exit code of the child
         int exitCode = WEXITSTATUS(stat);
-        printf("exitCode : %d", exitCode);
+
+        //printf("exitCode : %d\n", exitCode);
+
         // displaying the output as stated
         printf("Starting Parent Process with PID : %d\n", pidp);
         printf("Filenames Recieved : %s %s\n", argv[1], argv[2]);
@@ -34,13 +37,13 @@ int main(int argc, char* argv[]){
         // printing the error code along with the reason for the error code
         switch(exitCode){
             case 0:
-                printf("Both Files Are The Same!\n");
+                printf("File1 and File2 Are Same!\n");
                 break;
             case 1:
-                printf("Both Files Are Different!\n");
+                printf("File1 and File2 Are Different!\n");
                 break;
             case 2:
-                printf("Error Opening Files!\n");
+                printf("Error Opening Files / Same Filenames!\n");
                 break;
         }
     }
