@@ -16,7 +16,6 @@ int main(int argc, char* argv[]){
     }
     else if(pidc == 0){
         // code for the child
-        //printf("In parents child block!\n");
         execlp("./child", "child", argv[1], argv[2], NULL);
         // this line of code should not be printed during program execution
         // done only to find bugs
@@ -27,9 +26,6 @@ int main(int argc, char* argv[]){
         wait(&stat);    // the parent should wait for child to finish
         // using macros to get exit code of the child
         int exitCode = WEXITSTATUS(stat);
-
-        //printf("exitCode : %d\n", exitCode);
-
         // displaying the output as stated
         printf("Starting Parent Process with PID : %d\n", pidp);
         printf("Filenames Recieved : %s %s\n", argv[1], argv[2]);
@@ -45,6 +41,8 @@ int main(int argc, char* argv[]){
             case 2:
                 printf("ErrorCode : Error Opening Files / Same Filenames!\n");
                 break;
+            default:
+                printf("CHILD DID NOT RETURN A EXIT-CODE!\n");  // prompt the user of any errors
         }
     }
     exit(0);
