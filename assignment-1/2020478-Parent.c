@@ -33,13 +33,13 @@ int main(int argc, char* argv[]){
         // printing the error code along with the reason for the error code
         switch(exitCode){
             case 0:
-                printf("ErrorCode : File1 and File2 Are Same!\n");
+                printf("ErrorCode %d : File1 and File2 Are Same!\n", exitCode);
                 break;
             case 1:
-                printf("ErrorCode : File1 and File2 Are Different!\n");
+                printf("ErrorCode %d : File1 and File2 Are Different!\n", exitCode);
                 break;
             case 2:
-                printf("ErrorCode : Error Opening Files / Same Filenames!\n");
+                printf("ErrorCode %d : Error Opening Files / Same Filenames!\n", exitCode);
                 break;
             default:
                 printf("CHILD DID NOT RETURN A EXIT-CODE!\n");  // prompt the user of any errors
